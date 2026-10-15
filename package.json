@@ -1,0 +1,12 @@
+{
+  "name": "loop-library",
+  "version": "1.0.0",
+  "description": "Free crochet patterns from independent designers, gathered in one searchable place.",
+  "private": true,
+  "main": "server.js",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "collect": "node scripts/collect.js"
+  }
+}
