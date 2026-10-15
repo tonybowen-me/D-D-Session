@@ -70,7 +70,7 @@ kbd { font: 12px var(--sans); color: var(--muted); border: 1px solid var(--line)
 /* Toolbar */
 .toolbar { max-width: 1240px; margin: 0 auto; padding: 18px 24px 6px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; }
 .seg { display: inline-flex; background: #f1e8de; border-radius: 999px; padding: 4px; }
-.seg button { border: 0; background: none; border-radius: 999px; padding: 7px 14px; cursor: pointer; font-weight: 500; color: var(--muted); }
+.seg button { border: 0; background: none; border-radius: 999px; padding: 7px 14px; white-space: nowrap; flex: none; cursor: pointer; font-weight: 500; color: var(--muted); }
 .seg button.on { background: var(--paper); color: var(--ink); box-shadow: 0 1px 3px rgba(0, 0, 0, .08); }
 .tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 select { border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 8px 34px 8px 14px; appearance: none; cursor: pointer;
