@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loop Library · Free crochet patterns</title>
+  <meta name="description" content="Free crochet patterns from independent designers, gathered in one searchable place." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <a class="brand" href="/">
+        <img src="/favicon.svg" alt="" width="40" height="40" />
+        <span>Loop Library</span>
+      </a>
+      <h1>Every free crochet pattern,<br /><em>one cozy place.</em></h1>
+      <p class="lede" id="lede">Gathering patterns from independent designers…</p>
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+        <input id="q" type="search" placeholder="Search patterns: “granny square cardigan”, “frog”, “baby blanket”…" autocomplete="off" aria-label="Search patterns" />
+        <kbd>/</kbd>
+        <button id="surprise" class="btn ghost" type="button" title="Open a random pattern">Surprise me</button>
+      </div>
+    </div>
+    <div class="yarn-trail" aria-hidden="true"></div>
+  </header>
+
+  <nav class="cats" id="cats" aria-label="Categories"></nav>
+
+  <section class="toolbar">
+    <div class="seg" id="types" role="tablist" aria-label="Type">
+      <button data-type="" class="on">All</button>
+      <button data-type="pattern">Patterns</button>
+      <button data-type="roundup">Roundups</button>
+      <button data-type="tutorial">Stitch tutorials</button>
+    </div>
+    <div class="tools">
+      <label class="toggle"><input type="checkbox" id="easy" /><span></span>Beginner-friendly</label>
+      <select id="src" aria-label="Designer"><option value="">All designers</option></select>
+      <select id="sort" aria-label="Sort">
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+        <option value="az">A–Z</option>
+        <option value="shuffle">Shuffle</option>
+      </select>
+      <button id="savedBtn" class="btn pill" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.2 3.3 4.5 7 4.5c2.1 0 3.6 1.1 5 2.9 1.4-1.8 2.9-2.9 5-2.9 3.7 0 6 3.7 4.5 7.3C19.5 16.4 12 21 12 21z" /></svg>
+        Saved <b id="savedCount">0</b>
+      </button>
+    </div>
+  </section>
+
+  <div class="status" id="status"></div>
+
+  <main>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>
+      <h2>No patterns match… yet.</h2>
+      <p>Try a different word, or <button class="link" id="clearAll" type="button">clear all filters</button>.</p>
+    </div>
+    <div id="sentinel"></div>
+  </main>
+
+  <footer>
+    <p><strong>Loop Library</strong> only indexes titles and thumbnails. Every pattern lives on its designer’s site, so open it there and support the people who wrote it.</p>
+    <p class="sources" id="sources"></p>
+    <p class="muted" id="updated"></p>
+  </footer>
+
+  <dialog id="modal" aria-labelledby="mTitle">
+    <button class="close" id="mClose" aria-label="Close">×</button>
+    <div class="m-media"><img id="mImg" alt="" referrerpolicy="no-referrer" /></div>
+    <div class="m-body">
+      <div class="m-meta" id="mMeta"></div>
+      <h2 id="mTitle"></h2>
+      <p id="mExcerpt"></p>
+      <div class="tags" id="mTags"></div>
+      <div class="m-actions">
+        <a id="mOpen" class="btn primary" target="_blank" rel="noopener">Get the free pattern →</a>
+        <button id="mSave" class="btn ghost" type="button">Save</button>
+      </div>
+      <button id="mMore" class="link" type="button"></button>
+    </div>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>
