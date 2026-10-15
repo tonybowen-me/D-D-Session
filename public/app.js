@@ -91,7 +91,8 @@
     return true;
   }
 
-  function apply() {
+  function apply(keep = false) {
+    const prevShown = keep ? shown : 0;
     const base = data.patterns.filter((p) => matches(p, true));
     results = f.cat ? base.filter((p) => p.categories.includes(f.cat)) : base;
     const sorters = {
@@ -105,6 +106,7 @@
     els.grid.innerHTML = '';
     shown = 0;
     renderMore();
+    while (shown < Math.min(prevShown, results.length)) renderMore();
     els.empty.hidden = results.length > 0 || !data.patterns.length;
     renderStatus();
     syncUrl();
@@ -188,10 +190,11 @@
       const res = await fetch('/api/patterns', { headers: etag ? { 'If-None-Match': etag } : {} });
       if (res.status === 200) {
         etag = res.headers.get('ETag');
+        const hadData = data.patterns.length > 0;
         data = await res.json();
         prepare();
         renderChrome();
-        if (data.patterns.length) apply();
+        if (data.patterns.length) apply(hadData);
         else { renderSkeleton(); renderStatus(); }
       }
       if (data.refreshing || !data.patterns.length) setTimeout(load, data.patterns.length ? 8000 : 2500);
